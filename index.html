@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connexion - Portail étudiant</title>
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #f0f3f8;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 30px 24px;
+    border-radius: 16px;
+    box-shadow: 0 5px 25px rgba(0,0,0,.09);
+}
+
+.login-logo {
+    width: 65px;
+    height: 65px;
+    background: #102b55;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto auto 18px;
+    border-radius: 14px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.login-container h2 {
+    text-align: center;
+    color: #102b55;
+    margin-bottom: 8px;
+}
+
+.login-description {
+    text-align: center;
+    color: #718096;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.login-container label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d8dfeb;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    font-size: 16px;
+    outline: none;
+}
+
+.login-container input:focus {
+    border-color: #2463a6;
+}
+
+.login-button {
+    width: 100%;
+    border: none;
+    background: #102b55;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-button:active {
+    background: #2463a6;
+}
+
+.error-message {
+    display: none;
+    color: #c62828;
+    background: #ffebee;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.login-footer {
+    text-align: center;
+    color: #8995a7;
+    font-size: 12px;
+    margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="login-logo">DEMO</div>
+
+    <h2>PORTAIL ÉTUDIANT</h2>
+
+    <p class="login-description">
+        Connectez-vous à votre espace académique
+    </p>
+
+    <form id="loginForm">
+
+        <div id="errorMessage" class="error-message">
+            Matricule ou mot de passe incorrect.
+            Veuillez réessayer.
+        </div>
+
+        <label for="matricule">Numéro matricule</label>
+
+        <input
+            type="text"
+            id="matricule"
+            placeholder="Entrez votre matricule"
+            autocomplete="username"
+            required
+        >
+
+        <label for="password">Mot de passe</label>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Entrez votre mot de passe"
+            autocomplete="current-password"
+            required
+        >
+
+        <button type="submit" class="login-button">
+            SE CONNECTER
+        </button>
+
+    </form>
+
+    <p class="login-footer">
+        ESPACE ACADÉMIQUE - 2025-2026
+    </p>
+
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const matricule =
+        document.getElementById("matricule").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    const error =
+        document.getElementById("errorMessage");
+
+    if (matricule === "45438" && password === "MIRIAM") {
+
+        window.location.href = "tableau.html";
+
+    } else {
+
+        error.style.display = "block";
+
+    }
+
+});
+</script>
+
+</body>
+</html>
+
